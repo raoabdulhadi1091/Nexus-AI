@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Dynamic CSS Variables configured by theme palette */
+:root {
+  --nexus-bg: #040711;
+  --nexus-bg-subtle: #080E1E;
+  --nexus-surface: #0B1326;
+  --nexus-surface-hover: #101B35;
+  --nexus-surface-active: #152347;
+  --nexus-border: rgba(56, 189, 248, 0.16);
+  --nexus-border-highlight: rgba(56, 189, 248, 0.45);
+  --nexus-text: #F0F6FC;
+  --nexus-text-muted: #94A3B8;
+  --nexus-primary: #00D2FF;
+  --nexus-primary-hover: #38BDF8;
+  --nexus-primary-subtle: rgba(0, 210, 255, 0.12);
+  --nexus-accent: #34D399;
+  --nexus-glow: rgba(0, 210, 255, 0.35);
+  --nexus-user-bubble: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(14, 165, 233, 0.85) 100%);
+  --nexus-assistant-bubble: #0B1326;
+  --nexus-ring: linear-gradient(135deg, #00D2FF, #3B82F6, #10B981);
+}
+
+/* Glassmorphism utility with high-contrast backdrop filter */
+.nexus-glass {
+  background: var(--nexus-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--nexus-border);
+}
+
+.nexus-glass-hover:hover {
+  background: var(--nexus-surface-hover);
+  border-color: var(--nexus-border-highlight);
+}
+
+/* Custom Markdown Content Formatting */
+.nexus-markdown {
+  color: inherit;
+}
+
+.nexus-markdown p {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.7;
+}
+
+.nexus-markdown p:first-child {
+  margin-top: 0;
+}
+
+.nexus-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.nexus-markdown h1,
+.nexus-markdown h2,
+.nexus-markdown h3,
+.nexus-markdown h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--nexus-primary);
+  letter-spacing: -0.01em;
+}
+
+.nexus-markdown h1 { font-size: 1.45rem; }
+.nexus-markdown h2 { font-size: 1.28rem; }
+.nexus-markdown h3 { font-size: 1.12rem; }
+.nexus-markdown h4 { font-size: 1rem; }
+
+.nexus-markdown ul {
+  list-style-type: disc;
+  padding-left: 1.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.nexus-markdown ol {
+  list-style-type: decimal;
+  padding-left: 1.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.nexus-markdown li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.65;
+}
+
+.nexus-markdown blockquote {
+  border-left: 3px solid var(--nexus-primary);
+  padding-left: 1rem;
+  margin: 0.85rem 0;
+  color: var(--nexus-text-muted);
+  font-style: italic;
+  background: var(--nexus-primary-subtle);
+  border-radius: 0 8px 8px 0;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.nexus-markdown code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88em;
+  padding: 0.18em 0.45em;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--nexus-border);
+  border-radius: 6px;
+  color: var(--nexus-primary);
+  font-weight: 500;
+}
+
+.nexus-markdown pre {
+  background-color: #03060E !important;
+  border: 1px solid var(--nexus-border);
+  border-radius: 12px;
+  padding: 1.1rem;
+  margin: 0.95rem 0;
+  overflow-x: auto;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.nexus-markdown pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #E2E8F0;
+  display: block;
+}
+
+/* Tables with responsive horizontal scroll */
+.nexus-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1rem 0;
+  font-size: 0.85rem;
+  display: block;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--nexus-border);
+}
+
+.nexus-markdown th {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--nexus-border);
+  color: var(--nexus-primary);
+  white-space: nowrap;
+}
+
+.nexus-markdown td {
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nexus-markdown tr:last-child td {
+  border-bottom: none;
+}
+
+.nexus-markdown tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.nexus-markdown strong {
+  font-weight: 600;
+  color: var(--nexus-text);
+}
+
+.nexus-markdown hr {
+  border: 0;
+  height: 1px;
+  background: var(--nexus-border);
+  margin: 1.2rem 0;
+}
+
+/* Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nexus-primary);
+}
+
+/* Subtle background glow effect */
+.ambient-glow {
+  background: radial-gradient(circle 500px at 50% 10%, var(--nexus-glow), transparent 70%);
+  pointer-events: none;
+}
